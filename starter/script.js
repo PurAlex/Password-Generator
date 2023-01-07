@@ -90,18 +90,63 @@ var upperCasedCharacters = [
 
 // Function to prompt user for password options
 function getPasswordOptions() {
+    var specialOption;
+    if (confirm("Click OK to confirm including special characters.")) {
 
-}
+    } else {
+        alert("Cancel");
+    };
+
+    var numericOption;
+    if (confirm("Click OK to confirm including numeric characters.")) {
+        alert("OK")
+    } else {
+        alert("Cancel");
+    };
+
+    var lowerCaseOption;
+    if (confirm("Click OK to confirm including lower case characters.")) {
+        alert("OK")
+    } else {
+        alert("Cancel");
+    };
+
+    var uppercaseOption;
+    if (confirm("Click OK to confirm including upper case characters.")) {
+        alert("OK")
+    } else {
+        alert("Cancel");
+    };
+};
+
 
 // Function for getting a random element from an array
 function getRandom(arr) {
 
-}
+    for (var i = 0; i < arr.length; i++) {
+        var randomSpecial = specialCharacters[Math.floor(Math.random() * specialCharacters.length)];
+        console.log(randomSpecial);
+        var randomNumeric = numericCharacters[Math.floor(Math.random() * numericCharacters.length)];
+        console.log(randomNumeric);
+        var randomLowerCased = lowerCasedCharacters[Math.floor(Math.random() * lowerCasedCharacters.length)];
+        console.log(randomLowerCased);
+        var randomUpperCased = upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)];
+        console.log(randomUpperCased);
+    }
+};
 
 // Function to generate password with user input
 function generatePassword() {
-
-}
+    var lengthOption = prompt("How many characters would you like your password to contain?");
+    if (lengthOption <= 10) {
+        alert("Password length must be at least 10 characters");
+    } else if (lengthOption >= 64) {
+        alert("Password length must be at least 10 characters");
+    } else {
+        getPasswordOptions();
+    }
+    // return getRandom();
+};
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
